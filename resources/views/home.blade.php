@@ -7,6 +7,6 @@
       <title>Document</title>
 </head>
 <body>
-      
+      ok sono la view home.blade
 </body>
 </html>

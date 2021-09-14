@@ -13,8 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'PostController@homepage');
+//Route::get('/', 'PostController@homepage'); era il vecchio  TODO DA CANCELLARE -SPETTA
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::resource('posts', 'PostController');

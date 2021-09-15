@@ -50,7 +50,11 @@ class PostController extends Controller
      */
     public function show($id)
     {
-        //
+     // dump($id);
+     $allPosts = Post::find($id);
+      //dump($allPosts);
+      
+      return view('posts.show', compact('allPosts'));
     }
 
     /**

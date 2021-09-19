@@ -66,7 +66,7 @@ class PostController extends Controller
 
       //dd('funziona sta roba qui sopra?');SI!!!
       
-      return redirect()->rout('posts.show', )
+      return redirect()->route('posts.show', $post->id);
 
     }
 

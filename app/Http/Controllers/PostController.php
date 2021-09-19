@@ -56,6 +56,11 @@ class PostController extends Controller
       // -popolo i parametri con i dati della request (ovvero il form)
       // - li salvo !! 
 
+      $request->validate([   //esempio di request validazione e sintassi 
+            'img'=>'url'     //approfondire tutte opzioni comunque vuole
+                             //un array associativo come argomento!!! 
+      ]);
+
       $data = $request->all(); //la funzione all ritorna  tutti i valori del form in un array associativo
 
       $post = new Post;
@@ -79,10 +84,10 @@ class PostController extends Controller
     public function show($id)
     {
      // dump($id);
-     $allPosts = Post::find($id);
-      //dump($allPosts);
+     $singlePosts = Post::find($id);
+      //dump($singlePosts); CAMBIATO EVITARE CASINO!
       
-      return view('posts.show', compact('allPosts'));
+      return view('posts.show', compact('singlePosts'));
     }
 
     /**

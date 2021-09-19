@@ -2,9 +2,9 @@
 
 @section('content')
 <div class="container post-container">
-      {{$allPosts->title}}
+      {{$singlePost->title}}
 
-      <img src="{{$allPosts->img}}" alt="image of{{$allPosts->title}}"/>
+      <img src="{{$singlePosts->img}}" alt="image of{{$singlePosts->title}}"/>
 
 </div>
 

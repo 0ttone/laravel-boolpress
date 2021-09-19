@@ -42,7 +42,32 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-       dd($request);
+      //dump e die = dd ovvero fa il dump e chiude il processo
+      //             vediamo cosa è  $request
+
+      // dd($request); <- QUESTO 
+
+      // e vediamo che Request è esattamente il modello e quindi
+      //l' oggetto che rappresenta TUTTI gli elementi che definiscono
+      // la chiamata http  
+      // ========== ORA FACCIAMO DAVVERO STORE, COME?=========
+      // -recupero i dati con request 
+      // -creo l oggetto dal modello Post
+      // -popolo i parametri con i dati della request (ovvero il form)
+      // - li salvo !! 
+
+      $data = $request->all(); //la funzione all ritorna  tutti i valori del form in un array associativo
+
+      $post = new Post;
+      $post->title = $data['title'];   
+      $post->content = $data['content']; 
+      $post->img = $data['img']; 
+      $post->save();  
+
+      //dd('funziona sta roba qui sopra?');SI!!!
+      
+      return redirect()->rout('posts.show', )
+
     }
 
     /**

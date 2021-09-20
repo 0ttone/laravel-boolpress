@@ -64,11 +64,10 @@ class PostController extends Controller
 
       $data = $request->all(); //la funzione all ritorna  tutti i valori del form in un array associativo
 
-      $post = new Post;
-      $post->title = $data['title'];   
-      $post->content = $data['content']; 
-      $post->img = $data['img']; 
-      $post->save();  
+      $post = new Post();
+      //vedi riga 146
+      $this->fillAndSavePost($post, $data);
+      
 
       //dd('funziona sta roba qui sopra?');SI!!!
       
@@ -117,9 +116,17 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Post $post)
     {
-        //
+        $request->validate([
+              'img'=>'url'
+        ]);
+        $data = $request->all();
+
+       // $post->update($data);
+       $this->fillAndSavePost($post, $data);
+
+        return redirect()->route('posts.show', $post->id);
     }
 
     /**
@@ -128,8 +135,16 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Post $post)
     {
-        //
+       $post->delete();
+       return redirect()->route('posts.index');
+    }
+
+    private function fillAndSavePost(Post $post, $data){
+      $post->title = $data['title'];   
+      $post->content = $data['content']; 
+      $post->img = $data['img']; 
+      $post->save(); 
     }
 }

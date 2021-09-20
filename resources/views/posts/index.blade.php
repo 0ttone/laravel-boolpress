@@ -27,6 +27,12 @@
                                     <i class="fas fa-search"></i>
                               </button>
                         </a>
+                        <a href="{{ route('posts.edit', $post)}}">
+                              <button>
+                                    <i class="far fa-edit"></i></i>
+                              </button>
+                        </a>
+
                   </td>
 
             </tr>

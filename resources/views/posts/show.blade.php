@@ -5,6 +5,11 @@
       
 <!--rimanda alla route index-->
       <a href="{{ route('posts.index') }}"><i class="fas fa-arrow-left"></i></a>
+  
+                              
+                                    
+                              
+                        
 
 
       <div class="row justify-content-center">

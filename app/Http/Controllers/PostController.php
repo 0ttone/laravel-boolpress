@@ -16,6 +16,7 @@ class PostController extends Controller
     {
         $allPosts = Post::all();
        // dump($allPosts);verifica che veda tutti -ok li vede!
+        $allPosts = $allPosts->reverse();//carica dall ultima data utile, prima i nuovi
       
        return view('posts.index', compact('allPosts'));
 
@@ -95,10 +96,18 @@ class PostController extends Controller
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
+     * 
+     * di fatto è un form non nuovo ma da modificare
+     * il $post viene letto come l id e riconosce in Post il modello d
+     * da cui può riferirsi al db e attingere ai campi del singolo post da editare
+     * la rotta infatti  è posts/{post}/edit tra le graffe c'è il singolo post appunto.
+     * 
      */
-    public function edit($id)
+    public function edit(Post $post)
     {
-        //
+       // dd($post); mostra il singolo post editabile
+       
+       return view('posts.edit', compact('post'));
     }
 
     /**

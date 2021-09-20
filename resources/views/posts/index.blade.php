@@ -10,7 +10,7 @@
             <th scope="col">Content</th>
             <th scope="col">Published</th>
             <th scope="col">Image</th>
-            <th scope="col">Do It</th>
+            <th scope="col">Action</th>
       </tr>
       </thead>
       <tbody>
@@ -31,7 +31,7 @@
 
             </tr>
 
-            
+
             @endforeach
       </tbody>
       </table>

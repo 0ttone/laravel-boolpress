@@ -9,7 +9,7 @@
 
       <div class="row justify-content-center">
             <div class="col-12">
-                  <div class="single-post"></div>
+                  <div class="single-post mb-3">
                         <h2>{{$singlePosts->id}} {{$singlePosts->title}} </h2>
                         <span class="">{{$singlePosts->created_at}}</span>
                         <div class="d-flex flex-wrap">
